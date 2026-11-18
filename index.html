@@ -174,9 +174,7 @@
             <i class="fa-solid fa-envelope-open-text text-lg pointer-events-none"></i>
             <span class="pointer-events-none">Шақыруды ашу</span>
         </button>
-        <p class="mt-4 text-xs text-goldLight/75 flex items-center gap-1.5">
-            <i class="fa-solid fa-music text-goldPrimary"></i> «Әкеден биік бар ма адам» әнімен ашылады
-        </p>
+        
     </div>
 
     <!-- ==================== FLOATING MUSIC PLAYER BAR ==================== -->
@@ -747,22 +745,22 @@
                             } catch (saveErr) {}
                         }
 
-                        // Build WhatsApp message text including wishes
+                        
                         // Build WhatsApp message text without unreadable symbols
 var waMessage = 'Салеметсиз бе! Максаттын 50 жас мерейтойына жауап:\n\n'
     + 'Конак: ' + nameInput + '\n'
     + 'Жауабы: ' + attendanceVal;
 
 if (wishInput) {
-    waMessage += '\nТілегі: ' + wishInput;
+    waMessage += '\n Тілегі: ' + wishInput;
 } else {
-    waMessage += '\nТілегі: Жок';
+    waMessage += '\n Тілегі: Жок';
 }
 
                         if (wishInput) {
-                            waMessage += '\n💐 Ақ тілегі: ' + wishInput;
+                            waMessage += '\n Ақ тілегі: ' + wishInput;
                         } else {
-                            waMessage += '\n💐 Ақ тілегі: Жоқ';
+                            waMessage += '\n Ақ тілегі: Жоқ';
                         }
 
                         var cleanPhone = HOST_WHATSAPP_NUMBER.replace(/\D/g, '');
