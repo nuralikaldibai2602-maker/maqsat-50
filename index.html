@@ -593,6 +593,7 @@
                 floatingMusicWidget.classList.add('flex');
             }
 
+            audio.currentTime = 49;
             audio.play().then(function () {
                 isPlaying = true;
                 updateMusicUI(true);
@@ -747,9 +748,16 @@
                         }
 
                         // Build WhatsApp message text including wishes
-                        var waMessage = 'Сәлеметсіз бе! Мақсаттың 50 жас мерейтойына жауап:\n\n'
-                            + '👤 Қонақ: ' + nameInput + '\n'
-                            + '📌 Жауабы: ' + attendanceVal;
+                        // Build WhatsApp message text without unreadable symbols
+var waMessage = 'Салеметсиз бе! Максаттын 50 жас мерейтойына жауап:\n\n'
+    + 'Конак: ' + nameInput + '\n'
+    + 'Жауабы: ' + attendanceVal;
+
+if (wishInput) {
+    waMessage += '\nТілегі: ' + wishInput;
+} else {
+    waMessage += '\nТілегі: Жок';
+}
 
                         if (wishInput) {
                             waMessage += '\n💐 Ақ тілегі: ' + wishInput;
