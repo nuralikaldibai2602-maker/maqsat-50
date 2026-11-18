@@ -127,25 +127,48 @@
 
     <!-- ==================== 1. WELCOME ENVELOPE / COVER OVERLAY ==================== -->
     <div id="coverOverlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-emeraldRoyal text-center px-6 transition-all duration-1000">
-        <svg class="absolute top-4 left-4 w-20 h-20 sm:w-28 sm:h-28 text-goldPrimary opacity-70 pointer-events-none" viewBox="0 0 100 100" fill="none">
-            <path d="M5 95V25C5 13.9543 13.9543 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-            <path d="M15 80V30C15 21.7157 21.7157 15 30 15H80" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
-            <path d="M22 45C22 32 32 22 45 22C38 28 36 36 42 42C48 48 56 46 62 39C62 52 52 62 39 62C30 62 22 54 22 45Z" fill="currentColor" opacity="0.85"/>
+        <!-- Верхний левый угол (Вариант 12: Алтын таңба) -->
+        <svg class="absolute top-4 left-4 w-24 h-24 sm:w-32 sm:h-32 text-goldPrimary opacity-85 pointer-events-none" viewBox="0 0 120 120" fill="none">
+            <path d="M8 112V16C8 11.5817 11.5817 8 16 8H112" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 96V22C18 19.7909 19.7909 18 22 18H96" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M26 26H62L50 38H38V50L26 62V26Z" fill="currentColor"/>
+            <path d="M46 46H64V64H46V46Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="55" cy="55" r="3" fill="currentColor"/>
+            <circle cx="74" cy="28" r="2.5" fill="currentColor"/>
+            <circle cx="28" cy="74" r="2.5" fill="currentColor"/>
         </svg>
-        <svg class="absolute top-4 right-4 w-20 h-20 sm:w-28 sm:h-28 text-goldPrimary opacity-70 transform rotate-90 pointer-events-none" viewBox="0 0 100 100" fill="none">
-            <path d="M5 95V25C5 13.9543 13.9543 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-            <path d="M15 80V30C15 21.7157 21.7157 15 30 15H80" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
-            <path d="M22 45C22 32 32 22 45 22C38 28 36 36 42 42C48 48 56 46 62 39C62 52 52 62 39 62C30 62 22 54 22 45Z" fill="currentColor" opacity="0.85"/>
+
+        <!-- Верхний правый угол -->
+        <svg class="absolute top-4 right-4 w-24 h-24 sm:w-32 sm:h-32 text-goldPrimary opacity-85 transform rotate-90 pointer-events-none" viewBox="0 0 120 120" fill="none">
+            <path d="M8 112V16C8 11.5817 11.5817 8 16 8H112" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 96V22C18 19.7909 19.7909 18 22 18H96" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M26 26H62L50 38H38V50L26 62V26Z" fill="currentColor"/>
+            <path d="M46 46H64V64H46V46Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="55" cy="55" r="3" fill="currentColor"/>
+            <circle cx="74" cy="28" r="2.5" fill="currentColor"/>
+            <circle cx="28" cy="74" r="2.5" fill="currentColor"/>
         </svg>
-        <svg class="absolute bottom-4 left-4 w-20 h-20 sm:w-28 sm:h-28 text-goldPrimary opacity-70 transform -rotate-90 pointer-events-none" viewBox="0 0 100 100" fill="none">
-            <path d="M5 95V25C5 13.9543 13.9543 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-            <path d="M15 80V30C15 21.7157 21.7157 15 30 15H80" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
-            <path d="M22 45C22 32 32 22 45 22C38 28 36 36 42 42C48 48 56 46 62 39C62 52 52 62 39 62C30 62 22 54 22 45Z" fill="currentColor" opacity="0.85"/>
+
+        <!-- Нижний левый угол -->
+        <svg class="absolute bottom-4 left-4 w-24 h-24 sm:w-32 sm:h-32 text-goldPrimary opacity-85 transform -rotate-90 pointer-events-none" viewBox="0 0 120 120" fill="none">
+            <path d="M8 112V16C8 11.5817 11.5817 8 16 8H112" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 96V22C18 19.7909 19.7909 18 22 18H96" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M26 26H62L50 38H38V50L26 62V26Z" fill="currentColor"/>
+            <path d="M46 46H64V64H46V46Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="55" cy="55" r="3" fill="currentColor"/>
+            <circle cx="74" cy="28" r="2.5" fill="currentColor"/>
+            <circle cx="28" cy="74" r="2.5" fill="currentColor"/>
         </svg>
-        <svg class="absolute bottom-4 right-4 w-20 h-20 sm:w-28 sm:h-28 text-goldPrimary opacity-70 transform rotate-180 pointer-events-none" viewBox="0 0 100 100" fill="none">
-            <path d="M5 95V25C5 13.9543 13.9543 5 25 5H95" stroke="currentColor" stroke-width="2"/>
-            <path d="M15 80V30C15 21.7157 21.7157 15 30 15H80" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
-            <path d="M22 45C22 32 32 22 45 22C38 28 36 36 42 42C48 48 56 46 62 39C62 52 52 62 39 62C30 62 22 54 22 45Z" fill="currentColor" opacity="0.85"/>
+
+        <!-- Нижний правый угол -->
+        <svg class="absolute bottom-4 right-4 w-24 h-24 sm:w-32 sm:h-32 text-goldPrimary opacity-85 transform rotate-180 pointer-events-none" viewBox="0 0 120 120" fill="none">
+            <path d="M8 112V16C8 11.5817 11.5817 8 16 8H112" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M18 96V22C18 19.7909 19.7909 18 22 18H96" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M26 26H62L50 38H38V50L26 62V26Z" fill="currentColor"/>
+            <path d="M46 46H64V64H46V46Z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="55" cy="55" r="3" fill="currentColor"/>
+            <circle cx="74" cy="28" r="2.5" fill="currentColor"/>
+            <circle cx="28" cy="74" r="2.5" fill="currentColor"/>
         </svg>
 
         <div class="mb-6 relative pointer-events-none">
@@ -745,19 +768,16 @@
                             } catch (saveErr) {}
                         }
 
-                        
                         // Build WhatsApp message text without unreadable symbols
-var waMessage = 'Салеметсиз бе! Максаттын 50 жас мерейтойына жауап:\n\n'
-    + 'Конак: ' + nameInput + '\n'
-    + 'Жауабы: ' + attendanceVal ;
+                        var waMessage = 'Салеметсиз бе! Максаттын 50 жас мерейтойына жауап:\n\n'
+                            + 'Конак: ' + nameInput + '\n'
+                            + 'Жауабы: ' + attendanceVal;
 
-if (wishInput) {
-    waMessage += '\n Тілегі: ' + wishInput;
-} else {
-    waMessage += '\n Тілегі: Жок';
-}
-
-                       
+                        if (wishInput) {
+                            waMessage += '\n Тілегі: ' + wishInput;
+                        } else {
+                            waMessage += '\n Тілегі: Жок';
+                        }
 
                         var cleanPhone = HOST_WHATSAPP_NUMBER.replace(/\D/g, '');
                         var waUrl = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(waMessage);
