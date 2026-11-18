@@ -749,7 +749,7 @@
                         // Build WhatsApp message text without unreadable symbols
 var waMessage = 'Салеметсиз бе! Максаттын 50 жас мерейтойына жауап:\n\n'
     + 'Конак: ' + nameInput + '\n'
-    + 'Жауабы: ' + attendanceVal;
+    + 'Жауабы: ' + attendanceVal ;
 
 if (wishInput) {
     waMessage += '\n Тілегі: ' + wishInput;
@@ -757,11 +757,7 @@ if (wishInput) {
     waMessage += '\n Тілегі: Жок';
 }
 
-                        if (wishInput) {
-                            waMessage += '\n Ақ тілегі: ' + wishInput;
-                        } else {
-                            waMessage += '\n Ақ тілегі: Жоқ';
-                        }
+                       
 
                         var cleanPhone = HOST_WHATSAPP_NUMBER.replace(/\D/g, '');
                         var waUrl = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(waMessage);
