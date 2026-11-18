@@ -111,19 +111,6 @@
             transform: translateY(0);
         }
 
-        /* Keep YouTube player mounted off-screen so mobile browsers never throttle audio */
-        #yt-hidden-wrapper {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 220px;
-            height: 124px;
-            opacity: 0.001;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -138,14 +125,8 @@
 </head>
 <body class="font-sans antialiased selection:bg-goldPrimary selection:text-emeraldRoyal">
 
-    <!-- ==================== HIDDEN YOUTUBE PLAYER CONTAINER ==================== -->
-    <div id="yt-hidden-wrapper" aria-hidden="true">
-        <div id="youtubeAudioPlayer"></div>
-    </div>
-
     <!-- ==================== 1. WELCOME ENVELOPE / COVER OVERLAY ==================== -->
     <div id="coverOverlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-emeraldRoyal text-center px-6 transition-all duration-1000">
-        <!-- Decorative Corner Ornaments on Cover -->
         <svg class="absolute top-4 left-4 w-20 h-20 sm:w-28 sm:h-28 text-goldPrimary opacity-70 pointer-events-none" viewBox="0 0 100 100" fill="none">
             <path d="M5 95V25C5 13.9543 13.9543 5 25 5H95" stroke="currentColor" stroke-width="2"/>
             <path d="M15 80V30C15 21.7157 21.7157 15 30 15H80" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/>
@@ -167,7 +148,6 @@
             <path d="M22 45C22 32 32 22 45 22C38 28 36 36 42 42C48 48 56 46 62 39C62 52 52 62 39 62C30 62 22 54 22 45Z" fill="currentColor" opacity="0.85"/>
         </svg>
 
-        <!-- Shanyraq Emblem -->
         <div class="mb-6 relative pointer-events-none">
             <div class="absolute inset-0 rounded-full bg-goldPrimary/20 blur-xl"></div>
             <svg class="w-24 h-24 sm:w-28 sm:h-28 text-goldPrimary relative z-10" viewBox="0 0 120 120" fill="none">
@@ -207,22 +187,9 @@
                     Әкеден биік бар ма адам
                 </p>
                 <p id="musicTooltip" class="text-[10px] text-goldLight/80 truncate">
-                    Әуен қосылуда...
+                    Әуен ойнап тұр
                 </p>
             </div>
-
-            <!-- Direct YouTube Fallback Link -->
-            <a href="https://youtu.be/-ygZNjwPAUo?si=6H0fqaJwcqEj6KJS&t=49" target="_blank" rel="noopener noreferrer" title="YouTube-та ашу" class="px-2.5 py-1.5 rounded-full bg-emeraldDeep hover:bg-emeraldLight border border-goldPrimary/40 text-goldLight text-[10px] sm:text-xs font-medium transition-colors flex items-center gap-1 shrink-0">
-                <i class="fa-brands fa-youtube text-red-400"></i>
-                <span class="hidden sm:inline">YouTube</span>
-            </a>
-
-            <!-- Optional Local MP3 Upload Button -->
-            <label for="mp3UploadInput" title="Өз аудиоңызды жүктеу (MP3)" class="px-2.5 py-1.5 rounded-full bg-emeraldDeep hover:bg-emeraldLight border border-goldPrimary/40 text-goldLight text-[10px] sm:text-xs font-medium cursor-pointer transition-colors flex items-center gap-1 shrink-0">
-                <i class="fa-solid fa-upload text-goldPrimary"></i>
-                <span class="hidden sm:inline">MP3</span>
-            </label>
-            <input type="file" id="mp3UploadInput" accept="audio/*" class="hidden">
 
             <!-- Play / Pause Disc Button -->
             <button type="button" id="musicToggleBtn" aria-label="Әуенді қосу немесе өшіру" class="w-11 h-11 shrink-0 rounded-full bg-gradient-to-br from-goldLight via-goldPrimary to-goldDark text-emeraldRoyal shadow-[0_2px_12px_rgba(212,175,55,0.5)] border border-white/40 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-transform">
@@ -233,13 +200,13 @@
         </div>
     </div>
 
-    <!-- Hidden HTML5 Audio element for custom uploaded MP3 -->
-    <audio id="customMp3Audio" loop preload="auto" playsinline></audio>
+    <!-- GITHUB-КА ЖҮКТЕЛГЕН music.mp3 ФАЙЛЫ -->
+    <audio id="backgroundAudio" src="music.mp3" loop preload="auto" playsinline></audio>
 
     <!-- ==================== MAIN INVITATION CONTAINER ==================== -->
     <main class="max-w-2xl mx-auto shadow-2xl overflow-hidden relative bg-ivoryBg">
 
-        <!-- ==================== 2. HERO BANNER (ROYAL EMERALD & GOLD) ==================== -->
+        <!-- ==================== 2. HERO BANNER ==================== -->
         <section class="relative bg-gradient-to-b from-emeraldRoyal via-emeraldDeep to-emeraldRoyal text-center px-6 pt-14 pb-20 text-goldLight overflow-hidden">
             <div class="pointer-events-none absolute inset-0 overflow-hidden">
                 <span class="absolute top-12 left-10 w-1.5 h-1.5 rounded-full bg-goldPrimary" style="animation: floatParticle 4s infinite ease-in-out;"></span>
@@ -248,7 +215,6 @@
                 <span class="absolute top-1/2 right-8 w-1 h-1 rounded-full bg-goldLight" style="animation: floatParticle 6s infinite ease-in-out 2s;"></span>
             </div>
 
-            <!-- Top Kazakh Ornament Arch (Қошқар мүйіз) -->
             <div class="flex justify-center mb-5">
                 <svg class="w-64 sm:w-80 h-14 text-goldPrimary" viewBox="0 0 320 60" fill="none">
                     <path d="M10 50 C60 10, 260 10, 310 50" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
@@ -265,7 +231,6 @@
                 Мерейтойға шақыру
             </p>
 
-            <!-- Golden Medallion for "50 ЖАС" -->
             <div class="relative inline-flex items-center justify-center my-3">
                 <svg class="w-52 h-52 sm:w-64 sm:h-64 text-goldPrimary/85 animate-spin-slow" style="animation-duration: 38s;" viewBox="0 0 200 200" fill="none">
                     <circle cx="100" cy="100" r="94" stroke="currentColor" stroke-width="1.2" stroke-dasharray="6 4"/>
@@ -328,7 +293,6 @@
                 Өмірдің белесті белеңі — елу жасқа толу мерейтойына орай жайылатын салтанатты ақ дастарханымыздың қадірлі қонағы болуға шын жүректен шақырамыз!
             </p>
 
-            <!-- Hosts Card -->
             <div class="mt-9 max-w-md mx-auto bg-ivoryCard rounded-2xl p-6 sm:p-8 border border-goldPrimary/40 shadow-[0_10px_30px_rgba(6,44,34,0.06)] relative">
                 <div class="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-goldPrimary rounded-tl-md"></div>
                 <div class="absolute top-2.5 right-2.5 w-4 h-4 border-t-2 border-r-2 border-goldPrimary rounded-tr-md"></div>
@@ -346,7 +310,6 @@
                 </p>
             </div>
 
-            <!-- Song Lyrics Card -->
             <div class="mt-8 max-w-md mx-auto bg-gradient-to-br from-emeraldRoyal to-emeraldDeep text-goldLight rounded-2xl p-6 sm:p-7 border border-goldPrimary/50 shadow-xl relative overflow-hidden">
                 <div class="flex items-center justify-center gap-2 text-goldPrimary mb-3">
                     <span class="h-px w-6 bg-goldPrimary/50"></span>
@@ -355,6 +318,12 @@
                     <i class="fa-solid fa-music text-xs"></i>
                     <span class="h-px w-6 bg-goldPrimary/50"></span>
                 </div>
+                <blockquote class="font-serif italic text-xl sm:text-2xl leading-relaxed text-white">
+                    «Әкеден биік бар ма адам,<br>
+                    Тау тұлғасына таң қалам.<br>
+                    Жан гүлін арнап анама,<br>
+                    Тағдырын бізге арнаған...»
+                </blockquote>
             </div>
         </section>
 
@@ -438,7 +407,6 @@
                 </div>
             </div>
 
-            <!-- Live Countdown Timer -->
             <div>
                 <p class="uppercase tracking-[0.25em] text-xs text-goldLight/75 mb-4">Мерейтойға дейін қалды:</p>
                 <div class="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-md mx-auto">
@@ -510,7 +478,7 @@
             </div>
         </section>
 
-        <!-- ==================== 6. INTERACTIVE RSVP & WISHES WALL ==================== -->
+        <!-- ==================== 6. INTERACTIVE RSVP TO WHATSAPP & WISHES WALL ==================== -->
         <section class="bg-gradient-to-b from-emeraldDeep to-emeraldRoyal text-goldLight px-6 sm:px-10 py-14 reveal">
             <div class="max-w-md mx-auto">
                 <div class="text-center mb-8">
@@ -519,7 +487,7 @@
                         Тойға келетініңізді растаңыз
                     </h2>
                     <p class="text-sm text-goldLight/80">
-                        Сіздің қатысуыңыз біз үшін үлкен мәртебе!
+                        Жауабыңыз бен тілегіңіз тікелей WhatsApp-қа жолданады!
                     </p>
                 </div>
 
@@ -537,18 +505,24 @@
                         </span>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                             <label class="cursor-pointer">
-                                <input type="radio" name="attendance" value="Келемін, қуана қатысамын" checked class="peer sr-only">
+                                <input type="radio" name="attendance" value="Әрине, келемін! ✅" checked class="peer sr-only">
                                 <div class="px-4 py-3 rounded-xl border border-goldPrimary/35 bg-emeraldDeep/70 text-xs sm:text-sm text-center peer-checked:bg-goldPrimary peer-checked:text-emeraldRoyal peer-checked:font-semibold transition-all">
                                     Әрине, келемін!
                                 </div>
                             </label>
                             <label class="cursor-pointer">
-                                <input type="radio" name="attendance" value="Жұбайыммен келемін" class="peer sr-only">
+                                <input type="radio" name="attendance" value="Жұбайыммен келемін 💑" class="peer sr-only">
                                 <div class="px-4 py-3 rounded-xl border border-goldPrimary/35 bg-emeraldDeep/70 text-xs sm:text-sm text-center peer-checked:bg-goldPrimary peer-checked:text-emeraldRoyal peer-checked:font-semibold transition-all">
                                     Жұбайыммен келемін
                                 </div>
                             </label>
                         </div>
+                        <label class="cursor-pointer block mt-2.5">
+                            <input type="radio" name="attendance" value="Өкінішке орай, келе алмаймын ❌" class="peer sr-only">
+                            <div class="px-4 py-2.5 rounded-xl border border-goldPrimary/25 bg-emeraldDeep/50 text-xs text-center text-goldLight/80 peer-checked:bg-stone-600 peer-checked:text-white peer-checked:font-semibold transition-all">
+                                Өкінішке орай, келе алмаймын
+                            </div>
+                        </label>
                     </div>
 
                     <div>
@@ -558,8 +532,9 @@
                         <textarea id="guestWish" rows="3" placeholder="Мерейтой иесіне ізгі тілегіңізді жазыңыз..." class="w-full px-4 py-3 rounded-xl bg-emeraldDeep/90 border border-goldPrimary/40 text-white placeholder-goldLight/40 focus:outline-none focus:border-goldPrimary transition-colors"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-goldDark via-goldPrimary to-goldDark text-emeraldRoyal font-bold uppercase tracking-wider text-sm shadow-lg hover:brightness-110 active:scale-[0.99] transition-all cursor-pointer">
-                        Жауапты жіберу
+                    <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#25D366] via-[#20BD5A] to-[#1DA851] text-white font-bold uppercase tracking-wider text-sm shadow-lg hover:brightness-110 active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2.5">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>WhatsApp-қа жіберу</span>
                     </button>
 
                     <div id="rsvpFeedback" class="hidden rounded-xl bg-emeraldLight/80 border border-goldPrimary/50 p-3.5 text-center text-xs sm:text-sm text-white">
@@ -567,8 +542,23 @@
                     </div>
                 </form>
 
-                
-                    
+                <div class="mt-10">
+                    <h3 class="font-serif text-2xl font-bold text-center text-goldLight mb-4">
+                        Ақ тілектер тақтасы
+                    </h3>
+                    <div id="wishesContainer" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                        <div class="bg-emeraldDeep/90 border border-goldPrimary/40 rounded-2xl p-4">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-semibold text-sm text-goldPrimary">Бауырларың мен достарың</span>
+                                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-goldPrimary/20 text-goldLight">Қуана қатысамыз</span>
+                            </div>
+                            <p class="text-sm text-goldLight/95 leading-relaxed">
+                                Мақсат, 50 жас мерейтойың құтты болсын! Ләйлә екеуіңе зор денсаулық, отбасылық бақыт, бала-шағаның қызығын бірге көруді тілейміз!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ==================== 7. FOOTER ==================== -->
@@ -578,20 +568,15 @@
         </footer>
     </main>
 
-    <!-- ==================== YOUTUBE IFRAME API & APP LOGIC ==================== -->
+    <!-- ==================== SCRIPT LOGIC ==================== -->
     <script>
-        // YouTube Track Configuration: https://youtu.be/-ygZNjwPAUo?si=6H0fqaJwcqEj6KJS&t=49
-        var YT_VIDEO_ID = '-ygZNjwPAUo';
-        var YT_START_SECONDS = 49;
+        // ⚠️ ӨЗ WHATSAPP НӨМІРІҢІЗДІ ОСЫ ЖЕРГЕ ЖАЗЫҢЫЗ ('+' БЕЛГІСІНСІЗ, 7-ДЕН БАСТАП)
+        var HOST_WHATSAPP_NUMBER = '77001234567';
 
-        var ytPlayer = null;
-        var ytReady = false;
-        var shouldPlayOnReady = false;
+        var audio = document.getElementById('backgroundAudio');
         var isPlaying = false;
-        var useCustomMp3 = false;
-        var ytRetryInterval = null;
 
-        function updateMusicUI(playing, customStatusText) {
+        function updateMusicUI(playing) {
             var disc = document.getElementById('musicDiscIcon');
             var icon = document.getElementById('musicStateIcon');
             var tooltip = document.getElementById('musicTooltip');
@@ -600,163 +585,15 @@
             if (playing) {
                 disc.classList.remove('animate-spin-paused');
                 icon.className = 'fa-solid fa-music text-sm';
-                tooltip.textContent = customStatusText || (useCustomMp3 ? 'Жүктелген MP3 ойнап тұр' : 'YouTube әуені ойнап тұр (0:49)');
+                tooltip.textContent = 'Әуен ойнап тұр';
             } else {
                 disc.classList.add('animate-spin-paused');
                 icon.className = 'fa-solid fa-volume-xmark text-sm';
-                tooltip.textContent = customStatusText || 'Әуен өшірулі';
+                tooltip.textContent = 'Әуен өшірулі';
             }
         }
 
-        // Load YouTube IFrame Player API asynchronously
-        (function loadYouTubeAPI() {
-            var tag = document.createElement('script');
-            tag.src = 'https://www.youtube.com/iframe_api';
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        })();
-
-        // Global callback required by YouTube IFrame API
-        window.onYouTubeIframeAPIReady = function () {
-            try {
-                ytPlayer = new YT.Player('youtubeAudioPlayer', {
-                    height: '124',
-                    width: '220',
-                    videoId: YT_VIDEO_ID,
-                    playerVars: {
-                        autoplay: 0,
-                        controls: 0,
-                        disablekb: 1,
-                        fs: 0,
-                        iv_load_policy: 3,
-                        loop: 1,
-                        playlist: YT_VIDEO_ID,
-                        modestbranding: 1,
-                        playsinline: 1,
-                        rel: 0,
-                        start: YT_START_SECONDS
-                    },
-                    events: {
-                        onReady: function (event) {
-                            ytReady = true;
-                            try {
-                                event.target.setVolume(100);
-                            } catch (e) {}
-                            if (shouldPlayOnReady && !useCustomMp3) {
-                                playYouTubeFromStart();
-                            }
-                        },
-                        onStateChange: function (event) {
-                            if (useCustomMp3) return;
-                            if (event.data === YT.PlayerState.PLAYING) {
-                                isPlaying = true;
-                                updateMusicUI(true);
-                                if (ytRetryInterval) {
-                                    clearInterval(ytRetryInterval);
-                                    ytRetryInterval = null;
-                                }
-                            } else if (event.data === YT.PlayerState.PAUSED) {
-                                isPlaying = false;
-                                updateMusicUI(false);
-                            } else if (event.data === YT.PlayerState.ENDED) {
-                                try {
-                                    ytPlayer.seekTo(YT_START_SECONDS, true);
-                                    ytPlayer.playVideo();
-                                } catch (e) {}
-                            }
-                        },
-                        onError: function () {
-                            updateMusicUI(false, 'YouTube шектеуі — MP3 немесе сілтеме ашыңыз');
-                        }
-                    }
-                });
-            } catch (err) {
-                console.warn('YouTube player init error:', err);
-            }
-        };
-
-        function playYouTubeFromStart() {
-            shouldPlayOnReady = true;
-            if (!ytReady || !ytPlayer) {
-                updateMusicUI(true, 'YouTube жүктелуде...');
-                return;
-            }
-            try {
-                ytPlayer.unMute();
-                ytPlayer.setVolume(100);
-                var currentTime = 0;
-                try {
-                    currentTime = ytPlayer.getCurrentTime() || 0;
-                } catch (e) {}
-                if (currentTime < YT_START_SECONDS - 1) {
-                    ytPlayer.seekTo(YT_START_SECONDS, true);
-                }
-                ytPlayer.playVideo();
-                isPlaying = true;
-                updateMusicUI(true);
-
-                var attempts = 0;
-                if (ytRetryInterval) clearInterval(ytRetryInterval);
-                ytRetryInterval = setInterval(function () {
-                    attempts++;
-                    if (!shouldPlayOnReady || useCustomMp3 || attempts > 6) {
-                        clearInterval(ytRetryInterval);
-                        ytRetryInterval = null;
-                        return;
-                    }
-                    try {
-                        var state = ytPlayer.getPlayerState();
-                        if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
-                            ytPlayer.unMute();
-                            ytPlayer.playVideo();
-                        } else if (state === YT.PlayerState.PLAYING) {
-                            clearInterval(ytRetryInterval);
-                            ytRetryInterval = null;
-                        }
-                    } catch (e) {}
-                }, 700);
-            } catch (err) {
-                console.warn('YouTube play error:', err);
-            }
-        }
-
-        function startInvitationMusic() {
-            var customMp3Audio = document.getElementById('customMp3Audio');
-            if (useCustomMp3 && customMp3Audio) {
-                customMp3Audio.play().then(function () {
-                    isPlaying = true;
-                    updateMusicUI(true);
-                }).catch(function () {
-                    updateMusicUI(false, 'Ойнату батырмасын басыңыз');
-                });
-                return;
-            }
-            playYouTubeFromStart();
-        }
-
-        function stopInvitationMusic() {
-            shouldPlayOnReady = false;
-            isPlaying = false;
-            if (ytRetryInterval) {
-                clearInterval(ytRetryInterval);
-                ytRetryInterval = null;
-            }
-            var customMp3Audio = document.getElementById('customMp3Audio');
-            if (useCustomMp3 && customMp3Audio) {
-                customMp3Audio.pause();
-            } else if (ytReady && ytPlayer) {
-                try {
-                    ytPlayer.pauseVideo();
-                } catch (e) {}
-            }
-            updateMusicUI(false);
-        }
-
-        var invitationOpened = false;
         window.openInvitation = function () {
-            if (invitationOpened) return;
-            invitationOpened = true;
-
             var coverOverlay = document.getElementById('coverOverlay');
             var floatingMusicWidget = document.getElementById('floatingMusicWidget');
 
@@ -774,7 +611,12 @@
                 floatingMusicWidget.classList.add('flex');
             }
 
-            startInvitationMusic();
+            audio.play().then(function () {
+                isPlaying = true;
+                updateMusicUI(true);
+            }).catch(function (err) {
+                console.warn('Audio play error:', err);
+            });
         };
 
         (function () {
@@ -826,9 +668,6 @@
 
                 var openBtn = document.getElementById('openInvitationBtn');
                 var musicToggleBtn = document.getElementById('musicToggleBtn');
-                var customMp3Audio = document.getElementById('customMp3Audio');
-                var mp3UploadInput = document.getElementById('mp3UploadInput');
-                var musicTitleDisplay = document.getElementById('musicTitleDisplay');
 
                 if (openBtn) {
                     openBtn.addEventListener('click', function (e) {
@@ -841,42 +680,21 @@
                     }, { passive: false });
                 }
 
-                document.addEventListener('keydown', function (e) {
-                    var coverOverlay = document.getElementById('coverOverlay');
-                    if (e.key === 'Enter' && coverOverlay && coverOverlay.style.display !== 'none') {
-                        window.openInvitation();
-                    }
-                });
-
                 if (musicToggleBtn) {
                     musicToggleBtn.addEventListener('click', function () {
                         if (isPlaying) {
-                            stopInvitationMusic();
+                            audio.pause();
+                            isPlaying = false;
+                            updateMusicUI(false);
                         } else {
-                            startInvitationMusic();
+                            audio.play();
+                            isPlaying = true;
+                            updateMusicUI(true);
                         }
                     });
                 }
 
-                if (mp3UploadInput) {
-                    mp3UploadInput.addEventListener('change', function (e) {
-                        var file = e.target.files && e.target.files[0];
-                        if (!file) return;
-
-                        stopInvitationMusic();
-                        var fileURL = URL.createObjectURL(file);
-                        customMp3Audio.src = fileURL;
-                        useCustomMp3 = true;
-
-                        var cleanName = file.name.replace(/\.[^/.]+$/, '');
-                        if (musicTitleDisplay) {
-                            musicTitleDisplay.textContent = cleanName;
-                        }
-
-                        startInvitationMusic();
-                    });
-                }
-
+                // RSVP FORM -> WHATSAPP + WISHES WALL
                 var WISHES_STORAGE_KEY = 'maksat_50_jubilee_wishes_v1';
                 var rsvpForm = document.getElementById('rsvpForm');
                 var feedbackBox = document.getElementById('rsvpFeedback');
@@ -932,14 +750,9 @@
                         var nameInput = document.getElementById('guestName').value.trim();
                         var wishInput = document.getElementById('guestWish').value.trim();
                         var checkedRadio = document.querySelector('input[name="attendance"]:checked');
-                        var attendanceVal = checkedRadio ? checkedRadio.value : 'Келемін, қуана қатысамын';
+                        var attendanceVal = checkedRadio ? checkedRadio.value : 'Әрине, келемін!';
 
                         if (!nameInput) return;
-
-                        if (feedbackText && feedbackBox) {
-                            feedbackText.textContent = 'Рахмет, ' + nameInput + '! Жауабыңыз («' + attendanceVal + '») сәтті қабылданды.';
-                            feedbackBox.classList.remove('hidden');
-                        }
 
                         if (wishInput) {
                             renderWishCard(nameInput, attendanceVal, wishInput);
@@ -951,13 +764,30 @@
                             } catch (saveErr) {}
                         }
 
+                        // Build WhatsApp message text including wishes
+                        var waMessage = 'Сәлеметсіз бе! Мақсаттың 50 жас мерейтойына жауап:\n\n'
+                            + '👤 Қонақ: ' + nameInput + '\n'
+                            + '📌 Жауабы: ' + attendanceVal;
+
+                        if (wishInput) {
+                            waMessage += '\n💐 Ақ тілегі: ' + wishInput;
+                        } else {
+                            waMessage += '\n💐 Ақ тілегі: Жоқ';
+                        }
+
+                        var cleanPhone = HOST_WHATSAPP_NUMBER.replace(/\D/g, '');
+                        var waUrl = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(waMessage);
+
+                        if (feedbackText && feedbackBox) {
+                            feedbackText.textContent = 'WhatsApp ашылуда... Жауабыңызды жіберуді растаңыз!';
+                            feedbackBox.classList.add('flex');
+                            feedbackBox.classList.remove('hidden');
+                        }
+
                         rsvpForm.reset();
 
-                        if (feedbackBox) {
-                            setTimeout(function () {
-                                feedbackBox.classList.add('hidden');
-                            }, 6000);
-                        }
+                        // Open WhatsApp immediately with message prefilled
+                        window.location.href = waUrl;
                     });
                 }
             }
